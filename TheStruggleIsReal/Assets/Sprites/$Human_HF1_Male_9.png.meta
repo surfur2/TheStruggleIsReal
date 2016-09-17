@@ -1,0 +1,227 @@
+fileFormatVersion: 2
+guid: b34498852a7c1db479a4fa8109a7ac0b
+timeCreated: 1474153815
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: $Human_HF1_Male_9_0
+    21300002: $Human_HF1_Male_9_1
+    21300004: $Human_HF1_Male_9_2
+    21300006: $Human_HF1_Male_9_3
+    21300008: $Human_HF1_Male_9_4
+    21300010: $Human_HF1_Male_9_5
+    21300012: $Human_HF1_Male_9_6
+    21300014: $Human_HF1_Male_9_7
+    21300016: $Human_HF1_Male_9_8
+    21300018: $Human_HF1_Male_9_9
+    21300020: $Human_HF1_Male_9_10
+    21300022: $Human_HF1_Male_9_11
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: $Human_HF1_Male_9_0
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 210
+        width: 43
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: $Human_HF1_Male_9_1
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 213
+        width: 44
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: $Human_HF1_Male_9_2
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 210
+        width: 37
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: $Human_HF1_Male_9_3
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 147
+        width: 51
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: $Human_HF1_Male_9_4
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 145
+        width: 36
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: $Human_HF1_Male_9_5
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 147
+        width: 47
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: $Human_HF1_Male_9_6
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 77
+        width: 50
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: $Human_HF1_Male_9_7
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 75
+        width: 36
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: $Human_HF1_Male_9_8
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 78
+        width: 46
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: $Human_HF1_Male_9_9
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 0
+        width: 42
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: $Human_HF1_Male_9_10
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 8
+        width: 43
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: $Human_HF1_Male_9_11
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 0
+        width: 40
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
