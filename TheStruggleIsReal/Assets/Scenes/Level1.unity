@@ -138,8 +138,8 @@ Camera:
   m_GameObject: {fileID: 481998770}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -150,7 +150,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -174,51 +174,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
+  m_Children:
+  - {fileID: 1334296664}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!1001 &875406124
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4000014019128384, guid: 5055f75cffa55c1428b68b0659ec21bf, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000014019128384, guid: 5055f75cffa55c1428b68b0659ec21bf, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000014019128384, guid: 5055f75cffa55c1428b68b0659ec21bf, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000014019128384, guid: 5055f75cffa55c1428b68b0659ec21bf, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000014019128384, guid: 5055f75cffa55c1428b68b0659ec21bf, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000014019128384, guid: 5055f75cffa55c1428b68b0659ec21bf, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000014019128384, guid: 5055f75cffa55c1428b68b0659ec21bf, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000014019128384, guid: 5055f75cffa55c1428b68b0659ec21bf, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 5055f75cffa55c1428b68b0659ec21bf, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1290276162
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,17 +205,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c3595e9fb3443d4394bb0c187b58b62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  columns: 11
-  rows: 11
+  columns: 8
+  rows: 8
   exit: {fileID: 0}
   floorTiles:
-  - {fileID: 1000011233387936, guid: ac29a48322f64c742bda23ea58c8e8c9, type: 2}
+  - {fileID: 1000012177711824, guid: ac29a48322f64c742bda23ea58c8e8c9, type: 2}
   wallTiles:
-  - {fileID: 1000012967022870, guid: 96bfb0de006d70341b8a63a9b62ec872, type: 2}
+  - {fileID: 1000012408027534, guid: 96bfb0de006d70341b8a63a9b62ec872, type: 2}
   energyTiles: []
   enemyTiles: []
   outerWallTiles:
-  - {fileID: 1000013701908240, guid: a4f32e7fa7cab154295b3c478283f8e0, type: 2}
+  - {fileID: 1000012408027534, guid: 96bfb0de006d70341b8a63a9b62ec872, type: 2}
 --- !u!4 &1290276164
 Transform:
   m_ObjectHideFlags: 0
@@ -269,7 +228,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!1 &1334296663
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,13 +251,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1334296663}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_Father: {fileID: 481998775}
+  m_RootOrder: 0
 --- !u!108 &1334296665
 Light:
   m_ObjectHideFlags: 0
