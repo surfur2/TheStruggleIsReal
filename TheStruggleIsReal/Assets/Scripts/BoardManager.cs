@@ -47,25 +47,24 @@ public class BoardManager : MonoBehaviour
 
     void BoardSetup()
     {
+        Debug.Log("Setup");
         //boardHolder = new GameObject("Board").transform;
 
-        for (int x = -1; x < columns + 1; x++)
+        for (int x = -((int)Camera.main.orthographicSize + (int)Camera.main.orthographicSize / 2); x < ((int)Camera.main.orthographicSize + (int)Camera.main.orthographicSize / 2) + 1; x++)
         {
-            for (int y = -1; y < rows + 1; y++)
+            for (int y = -(int)Camera.main.orthographicSize; y < (int)Camera.main.orthographicSize + 1; y++)
             {
-                //GameObject toInstantiate = floorTiles[Random.Range(0, floorTiles.Length)];
-                GameObject toInstantiate = floorTiles[0];
+                GameObject toInstantiate = floorTiles[Random.Range(0, floorTiles.Length)];
+                
+                if (x == -((int)Camera.main.orthographicSize + (int)Camera.main.orthographicSize / 2) || x == ((int)Camera.main.orthographicSize + (int)Camera.main.orthographicSize / 2) || y == -(int)Camera.main.orthographicSize || y == (int)Camera.main.orthographicSize)
+                {
+                    toInstantiate = outerWallTiles[Random.Range(0, outerWallTiles.Length)];
+                }
 
-                if (x == -1 || x == columns || y == -1 || y == rows)
-                    //toInstantiate = outerWallTiles[Random.Range(0, outerWallTiles.Length)];
-                    toInstantiate = outerWallTiles[0];
-
-                //GameObject instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.identity) as GameObject;
-
-                toInstantiate.transform.position = new Vector3(x, y, 0.0f);
-                toInstantiate.transform.rotation = Quaternion.identity;
-
-                //toInstantiate.transform.SetParent(boardHolder);
+                GameObject instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.identity) as GameObject;
+                
+                //toInstantiate.SetParent(gameObject.transform);
+                toInstantiate.name = "(" + x.ToString() + "," + (y+1).ToString() + ")";
             }
         }
     }
@@ -99,7 +98,7 @@ public class BoardManager : MonoBehaviour
     {
         BoardSetup();
 
-        //InitialiseList();
+       //InitialiseList();
 
         //LayoutObjectAtRandom(wallTiles, wallCount.minimum, wallCount.maximum);
 
