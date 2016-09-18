@@ -121,6 +121,52 @@ public class Player : MonoBehaviour
         if (horzMove != 0 || vertMove != 0)
         {
             anim.SetBool("walking", true);
+
+            // Set idol animation float
+            if (horzMove >= 0 && vertMove >= 0 )
+            {
+                if (horzMove > vertMove)
+                {
+                    anim.SetFloat("lastDirection", .75f);
+                }
+                else
+                {
+                    anim.SetFloat("lastDirection", 1.75f);
+                }
+            }
+            else if (horzMove <= 0 && vertMove >= 0)
+            {
+                if (Mathf.Abs(horzMove) > vertMove)
+                {
+                    anim.SetFloat("lastDirection", .25f);
+                }
+                else
+                {
+                    anim.SetFloat("lastDirection", 1.75f);
+                }
+            }
+            else if (horzMove <= 0 && vertMove <= 0)
+            {
+                if (Mathf.Abs(horzMove) > Mathf.Abs(vertMove))
+                {
+                    anim.SetFloat("lastDirection", .25f);
+                }
+                else
+                {
+                    anim.SetFloat("lastDirection", -.25f);
+                }
+            }
+            else if (horzMove >= 0 && vertMove <= 0)
+            {
+                if (horzMove > Mathf.Abs(vertMove))
+                {
+                    anim.SetFloat("lastDirection", .75f);
+                }
+                else
+                {
+                    anim.SetFloat("lastDirection", -.25f);
+                }
+            }
         }
         else
         {
@@ -136,6 +182,11 @@ public class Player : MonoBehaviour
         if (currentHealth <= 0.0f)
         {
             Debug.Log("PlayerDead");
+        }
+
+        if (currentHealth > initialHealth)
+        {
+            currentHealth = initialHealth;
         }
     }
 

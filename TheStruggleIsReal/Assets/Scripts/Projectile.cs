@@ -17,17 +17,29 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
-        if(moveDirection == 1)
+        if(moveDirection == 1.0f)
         transform.position = new Vector3(transform.position.x + (moveSpeed * Time.deltaTime), transform.position.y, 0.0f);
 
-        if (moveDirection == -1)
-            transform.position = new Vector3(transform.position.x - (moveSpeed * Time.deltaTime), transform.position.y, 0.0f);
+        if(moveDirection == 1.5f)
+            transform.position = new Vector3(transform.position.x + (moveSpeed * Time.deltaTime), transform.position.y + (moveSpeed * Time.deltaTime), 0.0f);
 
-        if (moveDirection == 2)
+        if (moveDirection == 2.0f)
             transform.position = new Vector3(transform.position.x, transform.position.y + (moveSpeed * Time.deltaTime), 0.0f);
 
-        if (moveDirection == -2)
+        if (moveDirection == -1.5f)
+            transform.position = new Vector3(transform.position.x - (moveSpeed * Time.deltaTime), transform.position.y + (moveSpeed * Time.deltaTime), 0.0f);
+
+        if (moveDirection == -1.0f)
+            transform.position = new Vector3(transform.position.x - (moveSpeed * Time.deltaTime), transform.position.y, 0.0f);
+
+        if (moveDirection == -3.0f)
+            transform.position = new Vector3(transform.position.x - (moveSpeed * Time.deltaTime), transform.position.y - (moveSpeed * Time.deltaTime), 0.0f);
+
+        if (moveDirection == -2.0f)
             transform.position = new Vector3(transform.position.x, transform.position.y - (moveSpeed * Time.deltaTime), 0.0f);
+
+        if (moveDirection == 3.0f)
+            transform.position = new Vector3(transform.position.x + (moveSpeed * Time.deltaTime), transform.position.y - (moveSpeed * Time.deltaTime), 0.0f);
     }
 
     void Kill()
