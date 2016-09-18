@@ -6,13 +6,13 @@ public abstract class MovingObject : MonoBehaviour {
     public float moveSpeed = 6.0f; // Default move speed
     public LayerMask blockingLayer;
 
-    private BoxCollider2D boxCollider;
+    private PolygonCollider2D boxCollider;
     private Rigidbody2D rb2D;
 
 	// Use this for initialization
 	protected virtual void Start () {
 
-        boxCollider = GetComponent<BoxCollider2D>();
+        boxCollider = GetComponent<PolygonCollider2D>();
         rb2D = GetComponent<Rigidbody2D>();
 	}
 
@@ -59,6 +59,15 @@ public abstract class MovingObject : MonoBehaviour {
         if(!canMove && hitComponent != null)
         {
             OnCantMove(hitComponent);
+        }
+    }
+
+    void OnCollisionEnter2D (Collision2D col)
+    {
+        if (col.gameObject.tag == "Player")
+        {
+            // It is object tagged with TagB
+            rb2D.velocity = Vector2.zero;
         }
     }
 
