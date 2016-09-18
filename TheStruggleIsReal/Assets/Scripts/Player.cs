@@ -41,6 +41,7 @@ public class Player : MonoBehaviour
                 eBarProjectile.moveDirection = 1;
 
                 nextFire = Time.time + (1 / rateOfFire);
+                DamagePlayer(2);
             }
 
             if (Input.GetKey("left"))
@@ -51,6 +52,7 @@ public class Player : MonoBehaviour
                 eBarProjectile.moveDirection = -1;
 
                 nextFire = Time.time + (1 / rateOfFire);
+                DamagePlayer(2);
             }
 
             if (Input.GetKey("up"))
@@ -61,6 +63,7 @@ public class Player : MonoBehaviour
                 eBarProjectile.moveDirection = 2;
 
                 nextFire = Time.time + (1 / rateOfFire);
+                DamagePlayer(2);
             }
 
             if (Input.GetKey("down"))
@@ -71,7 +74,10 @@ public class Player : MonoBehaviour
                 eBarProjectile.moveDirection = -2;
 
                 nextFire = Time.time + (1 / rateOfFire);
+                DamagePlayer(2);
             }
+
+            
         }
 
         playerHealthSlider.value = currentHealth;
@@ -103,7 +109,7 @@ public class Player : MonoBehaviour
 
     public void DamagePlayer(float hitPoints)
     {
-        currentHealth += hitPoints;
+        currentHealth -= hitPoints;
 
         if (currentHealth <= 0.0f)
         {
