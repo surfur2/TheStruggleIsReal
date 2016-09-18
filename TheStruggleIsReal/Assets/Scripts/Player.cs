@@ -16,7 +16,6 @@ public class Player : MonoBehaviour
     private float currentHealth; // Intial HP
     private Animator anim;
     private float nextFire = 0;
-    private bool playerDead = false;
     private float iFrameDuration = 1.0f;
     private float iFrameEnd;
     private bool invulnerable = false;
@@ -37,53 +36,9 @@ public class Player : MonoBehaviour
     {
         Vector3 shootPosition;
 
-        if (Time.time > nextFire && !playerDead)
+        if (Time.time > nextFire)
         {
-            if (Input.GetKey("right") && Input.GetKey("up"))
-            {
-                shootPosition = new Vector3(transform.position.x + 0.5f, transform.position.y + 0.5f, 0.0f);
-                GameObject eBar = Instantiate(energyBar, shootPosition, Quaternion.identity) as GameObject;
-                Projectile eBarProjectile = eBar.GetComponent<Projectile>();
-                eBarProjectile.moveDirection = 1.5f;
-
-                nextFire = Time.time + (1 / rateOfFire);
-                DamagePlayer(2);
-            }
-
-            else if (Input.GetKey("left") && Input.GetKey("up"))
-            {
-                shootPosition = new Vector3(transform.position.x - 0.5f, transform.position.y + 0.5f, 0.0f);
-                GameObject eBar = Instantiate(energyBar, shootPosition, Quaternion.identity) as GameObject;
-                Projectile eBarProjectile = eBar.GetComponent<Projectile>();
-                eBarProjectile.moveDirection = -1.5f;
-
-                nextFire = Time.time + (1 / rateOfFire);
-                DamagePlayer(2);
-            }
-
-            else if (Input.GetKey("left") && Input.GetKey("down"))
-            {
-                shootPosition = new Vector3(transform.position.x - 0.5f, transform.position.y - 0.5f, 0.0f);
-                GameObject eBar = Instantiate(energyBar, shootPosition, Quaternion.identity) as GameObject;
-                Projectile eBarProjectile = eBar.GetComponent<Projectile>();
-                eBarProjectile.moveDirection = -3.0f;
-
-                nextFire = Time.time + (1 / rateOfFire);
-                DamagePlayer(2);
-            }
-
-            else if (Input.GetKey("right") && Input.GetKey("down"))
-            {
-                shootPosition = new Vector3(transform.position.x + 0.5f, transform.position.y - 0.5f, 0.0f);
-                GameObject eBar = Instantiate(energyBar, shootPosition, Quaternion.identity) as GameObject;
-                Projectile eBarProjectile = eBar.GetComponent<Projectile>();
-                eBarProjectile.moveDirection = 3.0f;
-
-                nextFire = Time.time + (1 / rateOfFire);
-                DamagePlayer(2);
-            }
-
-            else if (Input.GetKey("right"))
+            if (Input.GetKey("right"))
             {
                 shootPosition = new Vector3(transform.position.x + 0.5f, transform.position.y, 0.0f);
                 GameObject eBar = Instantiate(energyBar, shootPosition, Quaternion.identity) as GameObject;
@@ -94,7 +49,7 @@ public class Player : MonoBehaviour
                 DamagePlayer(2);
             }
 
-            else if (Input.GetKey("left"))
+            if (Input.GetKey("left"))
             {
                 shootPosition = new Vector3(transform.position.x - 0.5f, transform.position.y, 0.0f);
                 GameObject eBar = Instantiate(energyBar, shootPosition, Quaternion.identity) as GameObject;
@@ -105,7 +60,7 @@ public class Player : MonoBehaviour
                 DamagePlayer(2);
             }
 
-            else if (Input.GetKey("up"))
+            if (Input.GetKey("up"))
             {
                 shootPosition = new Vector3(transform.position.x, transform.position.y + 0.5f, 0.0f);
                 GameObject eBar = Instantiate(energyBar, shootPosition, Quaternion.identity) as GameObject;
@@ -116,7 +71,7 @@ public class Player : MonoBehaviour
                 DamagePlayer(2);
             }
 
-            else if (Input.GetKey("down"))
+            if (Input.GetKey("down"))
             {
                 shootPosition = new Vector3(transform.position.x, transform.position.y - 0.5f, 0.0f);
                 GameObject eBar = Instantiate(energyBar, shootPosition, Quaternion.identity) as GameObject;
@@ -126,6 +81,8 @@ public class Player : MonoBehaviour
                 nextFire = Time.time + (1 / rateOfFire);
                 DamagePlayer(2);
             }
+
+
         }
 
         if (iFrameEnd < Time.time)
@@ -135,14 +92,11 @@ public class Player : MonoBehaviour
 
         playerHealthSlider.value = currentHealth;
 
-        if(!playerDead)
-        {
-            float inputX = Input.GetAxis("Horizontal");
-            float inputY = Input.GetAxis("Vertical");
+        float inputX = Input.GetAxis("Horizontal");
+        float inputY = Input.GetAxis("Vertical");
 
-            anim.SetFloat("MoveX", inputX);
-            anim.SetFloat("MoveY", inputY);
-        }
+        anim.SetFloat("MoveX", inputX);
+        anim.SetFloat("MoveY", inputY);
     }
 
     IEnumerator Blink()
@@ -162,30 +116,72 @@ public class Player : MonoBehaviour
         float horzMove = Input.GetAxis("Horizontal");
         float vertMove = Input.GetAxis("Vertical");
 
-        if (!playerDead)
-        {
-            rgb2d.velocity = new Vector2(horzMove * moveSpeed, vertMove * moveSpeed);
+        rgb2d.velocity = new Vector2(horzMove * moveSpeed, vertMove * moveSpeed);
 
-            if (horzMove != 0 || vertMove != 0)
+        if (horzMove != 0 || vertMove != 0)
+        {
+            anim.SetBool("walking", true);
+
+            // Set idol animation float
+            if (horzMove >= 0 && vertMove >= 0 )
             {
-                anim.SetBool("walking", true);
+                if (horzMove > vertMove)
+                {
+                    anim.SetFloat("lastDirection", .75f);
+                }
+                else
+                {
+                    anim.SetFloat("lastDirection", 1.75f);
+                }
             }
-            else
+            else if (horzMove <= 0 && vertMove >= 0)
             {
-                anim.SetBool("walking", false);
+                if (Mathf.Abs(horzMove) > vertMove)
+                {
+                    anim.SetFloat("lastDirection", .25f);
+                }
+                else
+                {
+                    anim.SetFloat("lastDirection", 1.75f);
+                }
             }
+            else if (horzMove <= 0 && vertMove <= 0)
+            {
+                if (Mathf.Abs(horzMove) > Mathf.Abs(vertMove))
+                {
+                    anim.SetFloat("lastDirection", .25f);
+                }
+                else
+                {
+                    anim.SetFloat("lastDirection", -.25f);
+                }
+            }
+            else if (horzMove >= 0 && vertMove <= 0)
+            {
+                if (horzMove > Mathf.Abs(vertMove))
+                {
+                    anim.SetFloat("lastDirection", .75f);
+                }
+                else
+                {
+                    anim.SetFloat("lastDirection", -.25f);
+                }
+            }
+        }
+        else
+        {
+            anim.SetBool("walking", false);
         }
     }
 
     public void DamagePlayer(float hitPoints)
     {
-
+       
         currentHealth -= hitPoints;
 
         if (currentHealth <= 0.0f)
         {
             Debug.Log("PlayerDead");
-            playerDead = true;
         }
 
         if (currentHealth > initialHealth)
