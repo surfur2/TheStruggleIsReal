@@ -1,21 +1,22 @@
 fileFormatVersion: 2
 guid: b34498852a7c1db479a4fa8109a7ac0b
-timeCreated: 1474153815
+timeCreated: 1474156521
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: $Human_HF1_Male_9_0
-    21300002: $Human_HF1_Male_9_1
-    21300004: $Human_HF1_Male_9_2
-    21300006: $Human_HF1_Male_9_3
-    21300008: $Human_HF1_Male_9_4
-    21300010: $Human_HF1_Male_9_5
-    21300012: $Human_HF1_Male_9_6
-    21300014: $Human_HF1_Male_9_7
-    21300016: $Human_HF1_Male_9_8
-    21300018: $Human_HF1_Male_9_9
-    21300020: $Human_HF1_Male_9_10
-    21300022: $Human_HF1_Male_9_11
+    21300000: WalkDown1
+    21300002: WalkDownIdle
+    21300004: WalkDown2
+    21300006: WalkLeft1
+    21300008: WalkLeftIdle
+    21300010: WalkLeft2
+    21300012: WalkRight1
+    21300014: WalkRightIdle
+    21300016: WalkRight2
+    21300018: WalkUp1
+    21300020: WalkUpIdle
+    21300022: WalkUp2
+    21300024: $Human_HF1_Male_9_0
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -65,158 +66,171 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: $Human_HF1_Male_9_0
+      name: WalkDown1
       rect:
         serializedVersion: 2
         x: 23
         y: 210
-        width: 43
+        width: 23
         height: 70
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: $Human_HF1_Male_9_1
+      name: WalkDownIdle
       rect:
         serializedVersion: 2
-        x: 90
+        x: 91
         y: 213
-        width: 44
+        width: 28
         height: 67
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: $Human_HF1_Male_9_2
+      name: WalkDown2
       rect:
         serializedVersion: 2
         x: 164
         y: 210
-        width: 37
+        width: 23
         height: 70
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: $Human_HF1_Male_9_3
+      name: WalkLeft1
       rect:
         serializedVersion: 2
         x: 15
-        y: 147
-        width: 51
-        height: 62
+        y: 148
+        width: 39
+        height: 61
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: $Human_HF1_Male_9_4
+      name: WalkLeftIdle
       rect:
         serializedVersion: 2
         x: 97
         y: 145
-        width: 36
+        width: 15
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: $Human_HF1_Male_9_5
+      name: WalkLeft2
       rect:
         serializedVersion: 2
-        x: 154
-        y: 147
-        width: 47
-        height: 62
+        x: 155
+        y: 148
+        width: 39
+        height: 61
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: $Human_HF1_Male_9_6
+      name: WalkRight1
       rect:
         serializedVersion: 2
         x: 16
-        y: 77
-        width: 50
-        height: 62
+        y: 78
+        width: 39
+        height: 61
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: $Human_HF1_Male_9_7
+      name: WalkRightIdle
       rect:
         serializedVersion: 2
         x: 98
         y: 75
-        width: 36
+        width: 15
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: $Human_HF1_Male_9_8
+      name: WalkRight2
       rect:
         serializedVersion: 2
         x: 156
         y: 78
-        width: 46
+        width: 39
         height: 61
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: $Human_HF1_Male_9_9
+      name: WalkUp1
       rect:
         serializedVersion: 2
         x: 23
         y: 0
-        width: 42
+        width: 23
         height: 69
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: $Human_HF1_Male_9_10
+      name: WalkUpIdle
       rect:
         serializedVersion: 2
         x: 91
         y: 8
-        width: 43
+        width: 28
         height: 61
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: $Human_HF1_Male_9_11
+      name: WalkUp2
       rect:
         serializedVersion: 2
-        x: 163
+        x: 164
         y: 0
-        width: 40
+        width: 23
         height: 69
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: $Human_HF1_Male_9_0
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 81
+        width: 3
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
