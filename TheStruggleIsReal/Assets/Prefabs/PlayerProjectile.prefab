@@ -22,7 +22,7 @@ GameObject:
   - 212: {fileID: 212000012953507586}
   - 114: {fileID: 114000011329204200}
   - 60: {fileID: 60000011237202006}
-  - 50: {fileID: 50000013541302884}
+  - 50: {fileID: 50000014152766286}
   m_Layer: 8
   m_Name: PlayerProjectile
   m_TagString: Projectile
@@ -43,7 +43,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!50 &50000013541302884
+--- !u!50 &50000014152766286
 Rigidbody2D:
   serializedVersion: 2
   m_ObjectHideFlags: 1
