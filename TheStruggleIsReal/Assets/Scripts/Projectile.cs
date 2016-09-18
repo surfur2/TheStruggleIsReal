@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Projectile : MonoBehaviour
 {
-    public int moveDirection;
+    public float moveDirection;
     public float moveSpeed = 100.0f;
     public int killDelay = 2;
     public int damage = 1;
@@ -17,17 +17,29 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(moveDirection == 1)
+        if(moveDirection == 1.0f)
         transform.position = new Vector3(transform.position.x + (moveSpeed * Time.deltaTime), transform.position.y, 0.0f);
 
-        if (moveDirection == -1)
-            transform.position = new Vector3(transform.position.x - (moveSpeed * Time.deltaTime), transform.position.y, 0.0f);
+        if(moveDirection == 1.5f)
+            transform.position = new Vector3(transform.position.x + (moveSpeed * Time.deltaTime), transform.position.y + (moveSpeed * Time.deltaTime), 0.0f);
 
-        if (moveDirection == 2)
+        if (moveDirection == 2.0f)
             transform.position = new Vector3(transform.position.x, transform.position.y + (moveSpeed * Time.deltaTime), 0.0f);
 
-        if (moveDirection == -2)
+        if (moveDirection == -1.5f)
+            transform.position = new Vector3(transform.position.x - (moveSpeed * Time.deltaTime), transform.position.y + (moveSpeed * Time.deltaTime), 0.0f);
+
+        if (moveDirection == -1.0f)
+            transform.position = new Vector3(transform.position.x - (moveSpeed * Time.deltaTime), transform.position.y, 0.0f);
+
+        if (moveDirection == -3.0f)
+            transform.position = new Vector3(transform.position.x - (moveSpeed * Time.deltaTime), transform.position.y - (moveSpeed * Time.deltaTime), 0.0f);
+
+        if (moveDirection == -2.0f)
             transform.position = new Vector3(transform.position.x, transform.position.y - (moveSpeed * Time.deltaTime), 0.0f);
+
+        if (moveDirection == 3.0f)
+            transform.position = new Vector3(transform.position.x + (moveSpeed * Time.deltaTime), transform.position.y - (moveSpeed * Time.deltaTime), 0.0f);
     }
 
     void Kill()
