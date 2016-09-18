@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Projectile
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -50,6 +52,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1418735697
+    locked: 0
   - name: Units
     uniqueID: 2525475135
     locked: 0
