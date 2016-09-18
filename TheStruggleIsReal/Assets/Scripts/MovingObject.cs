@@ -71,6 +71,15 @@ public abstract class MovingObject : MonoBehaviour {
         }
     }
 
+    void OnBecameInvisible()
+    {
+        enabled = false;
+    }
+    void OnBecameVisible()
+    {
+        enabled = true;
+    }
+
     protected abstract void OnCantMove <T> (T component)
         where T : Component;
 

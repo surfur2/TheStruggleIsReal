@@ -6,6 +6,7 @@ public class EnemyLonely : MovingObject {
 
     //private Animator animator;                          //Variable of type Animator to store a reference to the enemy's Animator component.
     private Transform target;                           //Transform to attempt to move toward each turn.
+    Renderer rend;
 
 
     //Start overrides the virtual Start function of the base class.
@@ -38,13 +39,18 @@ public class EnemyLonely : MovingObject {
     //FixedUpdate is called each frame
     public void FixedUpdate()
     {
-        //Set the direction for enemy
-        Vector2 dir = target.transform.position - this.transform.position;
-        dir.Normalize();
- 
-        //Call the AttemptMove function and pass in the generic parameter Player, because Enemy is moving and expecting to potentially encounter a Player
+        rend = GetComponent<Renderer>();
+        if (rend.isVisible)
+        {
+            //Set the direction for enemy
+            Vector2 dir = target.transform.position - this.transform.position;
+            dir.Normalize();
+
+            //Call the AttemptMove function and pass in the generic parameter Player, because Enemy is moving and expecting to potentially encounter a Player
+
+            AttemptMove<Player>(dir);
+        }
         
-        AttemptMove<Player>(dir);
     }
 
 
