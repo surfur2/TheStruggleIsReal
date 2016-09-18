@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
     public int moveDirection;
     public float moveSpeed = 100.0f;
     public int killDelay = 2;
+    public int damage = 1;
    
     // Use this for initialization
     void Start()
@@ -32,5 +33,19 @@ public class Projectile : MonoBehaviour
     void Kill()
     {
         Destroy(gameObject, killDelay);
+    }
+
+    void OnTriggerEnter2D (Collider2D other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            Destroy(gameObject, 0f);
+            EnemyLonely myEnemy = other.gameObject.GetComponent<EnemyLonely>();
+            myEnemy.DamageEnemy(damage);
+        }
+        if (other.gameObject.tag == "Wall")
+        {
+            Destroy(gameObject, 0f);
+        }
     }
 }
