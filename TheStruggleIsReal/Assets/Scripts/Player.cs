@@ -7,13 +7,14 @@ public class Player : MonoBehaviour
     public GameObject energyBar;
     public float moveSpeed = 6.0f; // Default move speed
     public float initialHealth = 100.0f;
+    public float rateOfFire = 2.0f;
     public Slider playerHealthSlider;
 
     private Rigidbody2D rgb2d; // Used for moving the charcter
     [SerializeField]
     private float currentHealth; // Intial HP
     private Animator anim;
-
+    private float nextFire = 0;
     // For later use
     //private Animator animator;
 
@@ -29,37 +30,48 @@ public class Player : MonoBehaviour
     void Update()
     {
         Vector3 shootPosition;
-
-        if(Input.GetKeyDown("right"))
+        
+        if (Time.time > nextFire)
         {
-            shootPosition = new Vector3(transform.position.x + 0.5f, transform.position.y, 0.0f);    
-            GameObject eBar = Instantiate(energyBar, shootPosition, Quaternion.identity) as GameObject;
-            Projectile eBarProjectile = eBar.GetComponent<Projectile>();
-            eBarProjectile.moveDirection = 1;
-        }
+            if (Input.GetKey("right"))
+            {
+                shootPosition = new Vector3(transform.position.x + 0.5f, transform.position.y, 0.0f);
+                GameObject eBar = Instantiate(energyBar, shootPosition, Quaternion.identity) as GameObject;
+                Projectile eBarProjectile = eBar.GetComponent<Projectile>();
+                eBarProjectile.moveDirection = 1;
 
-        if (Input.GetKeyDown("left"))
-        {
-            shootPosition = new Vector3(transform.position.x - 0.5f, transform.position.y, 0.0f);
-            GameObject eBar = Instantiate(energyBar, shootPosition, Quaternion.identity) as GameObject;
-            Projectile eBarProjectile = eBar.GetComponent<Projectile>();
-            eBarProjectile.moveDirection = -1;
-        }
+                nextFire = Time.time + (1 / rateOfFire);
+            }
 
-        if (Input.GetKeyDown("up"))
-        {
-            shootPosition = new Vector3(transform.position.x, transform.position.y + 0.5f, 0.0f);
-            GameObject eBar = Instantiate(energyBar, shootPosition, Quaternion.identity) as GameObject;
-            Projectile eBarProjectile = eBar.GetComponent<Projectile>();
-            eBarProjectile.moveDirection = 2;
-        }
+            if (Input.GetKey("left"))
+            {
+                shootPosition = new Vector3(transform.position.x - 0.5f, transform.position.y, 0.0f);
+                GameObject eBar = Instantiate(energyBar, shootPosition, Quaternion.identity) as GameObject;
+                Projectile eBarProjectile = eBar.GetComponent<Projectile>();
+                eBarProjectile.moveDirection = -1;
 
-        if (Input.GetKeyDown("down"))
-        {
-            shootPosition = new Vector3(transform.position.x, transform.position.y - 0.5f, 0.0f);
-            GameObject eBar = Instantiate(energyBar, shootPosition, Quaternion.identity) as GameObject;
-            Projectile eBarProjectile = eBar.GetComponent<Projectile>();
-            eBarProjectile.moveDirection = -2;
+                nextFire = Time.time + (1 / rateOfFire);
+            }
+
+            if (Input.GetKey("up"))
+            {
+                shootPosition = new Vector3(transform.position.x, transform.position.y + 0.5f, 0.0f);
+                GameObject eBar = Instantiate(energyBar, shootPosition, Quaternion.identity) as GameObject;
+                Projectile eBarProjectile = eBar.GetComponent<Projectile>();
+                eBarProjectile.moveDirection = 2;
+
+                nextFire = Time.time + (1 / rateOfFire);
+            }
+
+            if (Input.GetKey("down"))
+            {
+                shootPosition = new Vector3(transform.position.x, transform.position.y - 0.5f, 0.0f);
+                GameObject eBar = Instantiate(energyBar, shootPosition, Quaternion.identity) as GameObject;
+                Projectile eBarProjectile = eBar.GetComponent<Projectile>();
+                eBarProjectile.moveDirection = -2;
+
+                nextFire = Time.time + (1 / rateOfFire);
+            }
         }
 
         playerHealthSlider.value = currentHealth;
