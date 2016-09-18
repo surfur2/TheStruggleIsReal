@@ -8,12 +8,14 @@ public abstract class MovingObject : MonoBehaviour {
 
     private Collider2D enemyCollider;
     private Rigidbody2D rb2D;
+    private Renderer rend;
 
-	// Use this for initialization
-	protected virtual void Start () {
+    // Use this for initialization
+    protected virtual void Start () {
 
         enemyCollider = GetComponent<Collider2D>();
         rb2D = GetComponent<Rigidbody2D>();
+        rend = GetComponent<Renderer>();
 	}
 
     protected void setMoveSpeed(float speed)

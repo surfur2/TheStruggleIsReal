@@ -1,10 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyLonely : MovingObject {
-    public int playerDamage = 10;                            //The amount of hit points to subtract from the player when attacking.
-    public int hp = 2;                                      // The amount of hp enemy starts with
-    public int chaseRadius = 7;                            // When does an enemy attempt to go after the player?
+public class EnemyLonely : Enemy {
     //private Animator animator;                          //Variable of type Animator to store a reference to the enemy's Animator component.
     private Transform target;                           //Transform to attempt to move toward each turn.
     Renderer rend;
@@ -12,7 +9,8 @@ public class EnemyLonely : MovingObject {
     //Start overrides the virtual Start function of the base class.
     protected override void Start()
     {
-        
+        hp = 2;
+        playerDamage = 10;
         //Get and store a reference to the attached Animator component.
         //animator = GetComponent<Animator>();
 
@@ -37,56 +35,64 @@ public class EnemyLonely : MovingObject {
     }
 
 
-    //FixedUpdate is called each frame
-    public void FixedUpdate()
-    {
+    ////FixedUpdate is called each frame
+    //public void FixedUpdate()
+    //{
+        
 
-        // Do we have LoS on player?
-        Vector2 chasingVector = (target.transform.position - this.transform.position);
-        // We do not want to hit our own collider, so we add in a small vector to prevent that
-        RaycastHit2D[] hitList = Physics2D.RaycastAll(transform.position, chasingVector, chaseRadius);
-        bool chase = false;
+    //    // Do we have LoS on player?
+    //    Vector2 chasingVector = (target.transform.position - this.transform.position);
+    //    //// We do not want to hit our own collider, so we add in a small vector to prevent that
+    //    //RaycastHit2D[] hitList = Physics2D.RaycastAll(transform.position, chasingVector, chaseRadius);
+    //    //bool chase = false;
 
-        foreach(RaycastHit2D hit in hitList)
-        {
-            if (hit.collider.tag == "Wall")
-                break;
+    //    //foreach(RaycastHit2D hit in hitList)
+    //    //{
+    //    //    if (hit.collider.tag == "Wall")
+    //    //        break;
 
-            if (hit.collider.tag == "Player")
-                chase = true;
-        }
+    //    //    if (hit.collider.tag == "Player")
+    //    //        chase = true;
+    //    //}
 
-        if (chase)
-        {
-            //Set the direction for enemy
-            chasingVector.Normalize();
+    //    //if (chase)
+    //    //{
+    //    //    //Set the direction for enemy
+    //    //    chasingVector.Normalize();
 
-            //Call the AttemptMove function and pass in the generic parameter Player, because Enemy is moving and expecting to potentially encounter a Player
+    //    //    //Call the AttemptMove function and pass in the generic parameter Player, because Enemy is moving and expecting to potentially encounter a Player
 
-            AttemptMove<Player>(chasingVector);
-        }
-        else
-        {
-            AttemptMove<Player>(new Vector2(0, 0));
-        }
-    }
+    //    //    AttemptMove<Player>(chasingVector);
+    //    //}
+    //    //else
+    //    //{
+    //    //    AttemptMove<Player>(new Vector2(0, 0));
+    //    //}
+    //    if (chasingVector.magnitude < 7)
+    //    {
+
+    //        chasingVector.Normalize();
+    //        AttemptMove<Player>(chasingVector);
+    //    }
+    //    else
+    //    {
+    //        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+    //    }
+        
+    //}
 
     //OnCantMove is called if Enemy attempts to move into a space occupied by a Player, it overrides the OnCantMove function of MovingObject 
     //and takes a generic parameter T which we use to pass in the component we expect to encounter, in this case Player
-    protected override void OnCantMove<T>(T component)
-    {
 
-    }
-
-    public void DamageEnemy(int dmg)
-    {
+    //public void DamageEnemy(int dmg)
+    //{
         
-        hp -= dmg;
+    //    hp -= dmg;
        
-        if (hp <= 0)
-        {
-            Destroy(gameObject, .1f);
-        }
-    }
+    //    if (hp <= 0)
+    //    {
+    //        Destroy(gameObject, .1f);
+    //    }
+    //}
     
 }
