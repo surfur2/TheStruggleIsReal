@@ -63,6 +63,12 @@ public class Player : MonoBehaviour
         }
 
         playerHealthSlider.value = currentHealth;
+
+        float inputX = Input.GetAxis("Horizontal");
+        float inputY = Input.GetAxis("Vertical");
+
+        anim.SetFloat("MoveX", inputX);
+        anim.SetFloat("MoveY", inputY);
     }
 
     // Update is called once per frame
@@ -73,18 +79,13 @@ public class Player : MonoBehaviour
 
         rgb2d.velocity = new Vector2(horzMove * moveSpeed, vertMove * moveSpeed);
 
-        if(Input.GetButtonDown("Horizontal"))
+        if (horzMove != 0 || vertMove != 0)
         {
-            if(horzMove > 0)
-            anim.SetBool("walkright", true);
-
-            if (horzMove == 0)
-                anim.SetBool("walkright", false);
+            anim.SetBool("walking", true);
         }
-
-        if (Input.GetButtonDown("Horizontal"))
+        else
         {
-            anim.SetBool("walkright", false);
+            anim.SetBool("walking", false);
         }
     }
 
