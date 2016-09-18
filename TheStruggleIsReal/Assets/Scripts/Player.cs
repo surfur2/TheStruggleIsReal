@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     public float moveSpeed = 6.0f; // Default move speed
 
     private Rigidbody2D rgb2d; // Used for moving the charcter
+    private int hitPoints = 100; // Intial HP
     private Animator anim;
 
     // For later use
