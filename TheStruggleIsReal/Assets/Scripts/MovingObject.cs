@@ -6,13 +6,13 @@ public abstract class MovingObject : MonoBehaviour {
     public float moveSpeed = 6.0f; // Default move speed
     public LayerMask blockingLayer;
 
-    private PolygonCollider2D boxCollider;
+    private Collider2D enemyCollider;
     private Rigidbody2D rb2D;
 
 	// Use this for initialization
 	protected virtual void Start () {
 
-        boxCollider = GetComponent<PolygonCollider2D>();
+        enemyCollider = GetComponent<Collider2D>();
         rb2D = GetComponent<Rigidbody2D>();
 	}
 
@@ -25,9 +25,9 @@ public abstract class MovingObject : MonoBehaviour {
         Vector2 start = transform.position;
         Vector2 end = start + dir;
 
-        boxCollider.enabled = false;
+        enemyCollider.enabled = false;
         hit = Physics2D.Linecast(start, end, blockingLayer);
-        boxCollider.enabled = true;
+        enemyCollider.enabled = true;
 
         if (hit.transform == null)
         {
