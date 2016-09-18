@@ -1,22 +1,21 @@
 fileFormatVersion: 2
-guid: b34498852a7c1db479a4fa8109a7ac0b
-timeCreated: 1474156521
+guid: e010b5df5c636354cb1c8011c110755c
+timeCreated: 1474155387
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: WalkDown1
-    21300002: WalkDownIdle
-    21300004: WalkDown2
-    21300006: WalkLeft1
-    21300008: WalkLeftIdle
-    21300010: WalkLeft2
-    21300012: WalkRight1
-    21300014: WalkRightIdle
-    21300016: WalkRight2
-    21300018: WalkUp1
-    21300020: WalkUpIdle
-    21300022: WalkUp2
-    21300024: $Human_HF1_Male_9_0
+    21300000: $Monster_HF1_Demon_0
+    21300002: $Monster_HF1_Demon_1
+    21300004: $Monster_HF1_Demon_2
+    21300006: $Monster_HF1_Demon_3
+    21300008: $Monster_HF1_Demon_4
+    21300010: $Monster_HF1_Demon_5
+    21300012: $Monster_HF1_Demon_6
+    21300014: $Monster_HF1_Demon_7
+    21300016: $Monster_HF1_Demon_8
+    21300018: $Monster_HF1_Demon_9
+    21300020: $Monster_HF1_Demon_10
+    21300022: $Monster_HF1_Demon_11
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -66,171 +65,158 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WalkDown1
+      name: $Monster_HF1_Demon_0
       rect:
         serializedVersion: 2
-        x: 23
-        y: 210
-        width: 23
-        height: 70
+        x: 5
+        y: 496
+        width: 181
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: $Monster_HF1_Demon_1
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 505
+        width: 190
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: $Monster_HF1_Demon_2
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 496
+        width: 157
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: $Monster_HF1_Demon_3
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 349
+        width: 138
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: $Monster_HF1_Demon_4
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 330
+        width: 113
+        height: 148
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: WalkDownIdle
+      name: $Monster_HF1_Demon_5
       rect:
         serializedVersion: 2
-        x: 91
-        y: 213
-        width: 28
-        height: 67
+        x: 456
+        y: 340
+        width: 139
+        height: 119
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: WalkDown2
+      name: $Monster_HF1_Demon_6
       rect:
         serializedVersion: 2
-        x: 164
-        y: 210
-        width: 23
-        height: 70
+        x: 10
+        y: 175
+        width: 145
+        height: 143
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: WalkLeft1
+      name: $Monster_HF1_Demon_7
       rect:
         serializedVersion: 2
-        x: 15
-        y: 148
-        width: 39
-        height: 61
+        x: 233
+        y: 168
+        width: 115
+        height: 147
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: WalkLeftIdle
+      name: $Monster_HF1_Demon_8
       rect:
         serializedVersion: 2
-        x: 97
-        y: 145
-        width: 15
-        height: 64
+        x: 426
+        y: 184
+        width: 123
+        height: 130
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: WalkLeft2
+      name: $Monster_HF1_Demon_9
       rect:
         serializedVersion: 2
-        x: 155
-        y: 148
-        width: 39
-        height: 61
+        x: 45
+        y: 11
+        width: 155
+        height: 127
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: WalkRight1
+      name: $Monster_HF1_Demon_10
       rect:
         serializedVersion: 2
-        x: 16
-        y: 78
-        width: 39
-        height: 61
+        x: 212
+        y: 16
+        width: 188
+        height: 115
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: WalkRightIdle
+      name: $Monster_HF1_Demon_11
       rect:
         serializedVersion: 2
-        x: 98
-        y: 75
-        width: 15
-        height: 64
+        x: 411
+        y: 3
+        width: 157
+        height: 135
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: WalkRight2
-      rect:
-        serializedVersion: 2
-        x: 156
-        y: 78
-        width: 39
-        height: 61
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: WalkUp1
-      rect:
-        serializedVersion: 2
-        x: 23
-        y: 0
-        width: 23
-        height: 69
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: WalkUpIdle
-      rect:
-        serializedVersion: 2
-        x: 91
-        y: 8
-        width: 28
-        height: 61
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: WalkUp2
-      rect:
-        serializedVersion: 2
-        x: 164
-        y: 0
-        width: 23
-        height: 69
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: $Human_HF1_Male_9_0
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 81
-        width: 3
-        height: 26
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

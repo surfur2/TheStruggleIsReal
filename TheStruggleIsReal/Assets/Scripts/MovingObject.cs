@@ -3,25 +3,27 @@ using System.Collections;
 
 public abstract class MovingObject : MonoBehaviour {
 
-    public float moveTime = 0.1f;
+    public float moveSpeed = 6.0f; // Default move speed
     public LayerMask blockingLayer;
 
-    private BoxCollider2D boxCollider;
+    private PolygonCollider2D boxCollider;
     private Rigidbody2D rb2D;
-    private float inverseMoveTime;
 
 	// Use this for initialization
 	protected virtual void Start () {
 
-        boxCollider = GetComponent<BoxCollider2D>();
+        boxCollider = GetComponent<PolygonCollider2D>();
         rb2D = GetComponent<Rigidbody2D>();
-        inverseMoveTime = 1f / moveTime;
 	}
 
-    protected bool Move (int xDir, int yDir, out RaycastHit2D hit)
+    protected void setMoveSpeed(float speed)
+    {
+        moveSpeed = speed;
+    }
+    protected bool Move (Vector2 dir, out RaycastHit2D hit)
     {
         Vector2 start = transform.position;
-        Vector2 end = start + new Vector2(xDir, yDir);
+        Vector2 end = start + dir;
 
         boxCollider.enabled = false;
         hit = Physics2D.Linecast(start, end, blockingLayer);
@@ -29,31 +31,25 @@ public abstract class MovingObject : MonoBehaviour {
 
         if (hit.transform == null)
         {
-            StartCoroutine(SmoothMovement(end));
+            SmoothMovement(dir);
             return true;
         }
 
         return false;
     }
 
-    protected IEnumerator SmoothMovement (Vector3 end) {
+    protected void SmoothMovement (Vector2 dir) {
 
-        float sqrRemainingDistance = (transform.position - end).sqrMagnitude;
-
-        while (sqrRemainingDistance > float.Epsilon)
-        {
-            Vector3 newPosition = Vector3.MoveTowards(rb2D.position, end, inverseMoveTime * Time.deltaTime);
-            rb2D.MovePosition(newPosition);
-            sqrRemainingDistance = (transform.position - end).sqrMagnitude;
-            yield return null;
-        }
+        rb2D.velocity = dir * moveSpeed;
+ 
+        
     }
 
-    protected virtual void AttemptMove<T>(int xDir, int yDir)
+    protected virtual void AttemptMove<T>(Vector2 dir)
         where T : Component
     {
         RaycastHit2D hit;
-        bool canMove = Move(xDir, yDir, out hit);
+        bool canMove = Move(dir, out hit);
 
         if (hit.transform == null)
             return;
@@ -63,6 +59,15 @@ public abstract class MovingObject : MonoBehaviour {
         if(!canMove && hitComponent != null)
         {
             OnCantMove(hitComponent);
+        }
+    }
+
+    void OnCollisionEnter2D (Collision2D col)
+    {
+        if (col.gameObject.tag == "Player")
+        {
+            // It is object tagged with TagB
+            rb2D.velocity = Vector2.zero;
         }
     }
 
