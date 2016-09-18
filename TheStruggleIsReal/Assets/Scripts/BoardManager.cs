@@ -50,24 +50,76 @@ public class BoardManager : MonoBehaviour
         Debug.Log("Setup");
         //boardHolder = new GameObject("Board").transform;
 
-        for (int x = -((int)Camera.main.orthographicSize + (int)Camera.main.orthographicSize / 2); x < ((int)Camera.main.orthographicSize + (int)Camera.main.orthographicSize / 2) + 1; x++)
+        for (int x = 0; x < columns; x++)
         {
-            for (int y = -(int)Camera.main.orthographicSize; y < (int)Camera.main.orthographicSize + 1; y++)
+            for (int y = 0; y <  rows; y++)
             {
-                GameObject toInstantiate = floorTiles[Random.Range(0, floorTiles.Length)];
-                
-                if (x == -((int)Camera.main.orthographicSize + (int)Camera.main.orthographicSize / 2) || x == ((int)Camera.main.orthographicSize + (int)Camera.main.orthographicSize / 2) || y == -(int)Camera.main.orthographicSize || y == (int)Camera.main.orthographicSize)
-                {
-                    toInstantiate = outerWallTiles[Random.Range(0, outerWallTiles.Length)];
-                }
+                Quaternion rotationAngle;
+                GameObject toInstantiate;
+                toInstantiate = TileToInstantiate(x, y, out rotationAngle);
 
-                GameObject instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.identity) as GameObject;
-                
+                GameObject instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), rotationAngle) as GameObject;
+
                 //toInstantiate.SetParent(gameObject.transform);
-                toInstantiate.name = "(" + x.ToString() + "," + (y+1).ToString() + ")";
+                toInstantiate.name = "(" + x.ToString() + "," + (y + 1).ToString() + ")";
             }
         }
+
     }
+
+    #region CreateWalls
+    private void CreatWalls()
+    {
+        
+    }
+    #endregion
+
+
+    #region TileToInstantiate
+    private GameObject TileToInstantiate(int x, int y, out Quaternion angle)
+    {
+        GameObject toInstantiate = floorTiles[Random.Range(0, floorTiles.Length)]; ;
+        angle = Quaternion.identity;
+
+        if (x == 0 && y == 0)
+        {
+            toInstantiate = outerWallTiles[0];
+        }
+        else if (x == (columns - 1) && y == (rows - 1))
+        {
+            toInstantiate = outerWallTiles[0];
+        }
+        else if (x == 0 && y == (rows - 1))
+        {
+            toInstantiate = outerWallTiles[0];
+        }
+        else if (x == (columns - 1) && y == 0)
+        {
+            toInstantiate = outerWallTiles[0];
+        }
+        else if (x == 0)
+        {
+            toInstantiate = outerWallTiles[1];
+            angle = Quaternion.Euler(0, 0, 270);
+        }
+        else if (y == 0)
+        {
+            toInstantiate = outerWallTiles[1];
+        }
+        else if (x == (columns - 1))
+        {
+            toInstantiate = outerWallTiles[1];
+            angle = Quaternion.Euler(0, 0, 90);
+        }
+        else if (y == (rows - 1))
+        {
+            toInstantiate = outerWallTiles[1];
+            angle = Quaternion.Euler(0, 0, 180);
+        }
+
+        return toInstantiate;
+    }
+    #endregion
 
     Vector3 RandomPosition()
     {
