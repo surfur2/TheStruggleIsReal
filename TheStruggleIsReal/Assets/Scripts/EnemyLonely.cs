@@ -56,8 +56,8 @@ public class EnemyLonely : MovingObject {
         Player hitPlayer = component as Player;
 
         //Call the loseHP function of hitPlayer passing it playerDamage, the amount of HP to be subtracted.
-        hitPlayer.loseHP(playerDamage);
-
+        //hitPlayer.loseHP(playerDamage);
+        hitPlayer.DamagePlayer(playerDamage);
         //Set the attack trigger of animator to trigger Enemy attack animation.
         //animator.SetTrigger("enemyAttack");
 
