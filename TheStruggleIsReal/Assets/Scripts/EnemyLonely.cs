@@ -2,11 +2,10 @@
 using System.Collections;
 
 public class EnemyLonely : MovingObject {
-    public int playerDamage;                            //The amount of food points to subtract from the player when attacking.
+    public int playerDamage = 10;                            //The amount of hit points to subtract from the player when attacking.
 
     //private Animator animator;                          //Variable of type Animator to store a reference to the enemy's Animator component.
     private Transform target;                           //Transform to attempt to move toward each turn.
-    private bool skipMove;                              //Boolean to determine whether or not enemy should skip a turn or move this turn.
 
 
     //Start overrides the virtual Start function of the base class.
@@ -52,11 +51,12 @@ public class EnemyLonely : MovingObject {
     //and takes a generic parameter T which we use to pass in the component we expect to encounter, in this case Player
     protected override void OnCantMove<T>(T component)
     {
+        
         //Declare hitPlayer and set it to equal the encountered component.
-        //Player hitPlayer = component as Player;
+        Player hitPlayer = component as Player;
 
-        //Call the LoseFood function of hitPlayer passing it playerDamage, the amount of foodpoints to be subtracted.
-        //hitPlayer.LoseFood(playerDamage);
+        //Call the loseHP function of hitPlayer passing it playerDamage, the amount of HP to be subtracted.
+        hitPlayer.loseHP(playerDamage);
 
         //Set the attack trigger of animator to trigger Enemy attack animation.
         //animator.SetTrigger("enemyAttack");

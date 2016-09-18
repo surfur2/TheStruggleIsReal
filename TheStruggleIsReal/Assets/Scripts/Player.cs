@@ -5,6 +5,7 @@ public class Player : MonoBehaviour {
 
     public float moveSpeed = 6.0f; // Default move speed
     private Rigidbody2D rgb2d; // Used for moving the charcter
+    private int hitPoints = 100; // Intial HP
 
     // For later use
     //private Animator animator;
@@ -21,5 +22,10 @@ public class Player : MonoBehaviour {
         float vertMove = Input.GetAxis("Vertical");
 
         rgb2d.velocity = new Vector2(horzMove * moveSpeed, vertMove * moveSpeed);
+    }
+
+    public void loseHP(int playerDamage)
+    {
+        hitPoints -= playerDamage;
     }
 }

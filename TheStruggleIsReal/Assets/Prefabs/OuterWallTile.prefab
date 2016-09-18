@@ -22,7 +22,7 @@ GameObject:
   - 212: {fileID: 212000011383693146}
   - 61: {fileID: 61000013880191080}
   m_Layer: 0
-  m_Name: (15,11)
+  m_Name: OuterWallTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
