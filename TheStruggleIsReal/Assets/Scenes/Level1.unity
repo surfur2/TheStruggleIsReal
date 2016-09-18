@@ -134,6 +134,11 @@ Prefab:
       propertyPath: playerHealthSlider
       value: 
       objectReference: {fileID: 1049637815}
+    - target: {fileID: 114000010227146000, guid: b9a036c5a61f0164fb4725531921aff8,
+        type: 2}
+      propertyPath: intensity
+      value: 0.7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b9a036c5a61f0164fb4725531921aff8, type: 2}
   m_IsPrefabParent: 0

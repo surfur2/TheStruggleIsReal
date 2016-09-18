@@ -183,6 +183,11 @@ public class Player : MonoBehaviour
         {
             Debug.Log("PlayerDead");
         }
+
+        if (currentHealth > initialHealth)
+        {
+            currentHealth = initialHealth;
+        }
     }
 
     private void MakeInvulnerable()
