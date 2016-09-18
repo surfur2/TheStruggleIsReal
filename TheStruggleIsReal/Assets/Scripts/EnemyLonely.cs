@@ -52,19 +52,6 @@ public class EnemyLonely : MovingObject {
     //and takes a generic parameter T which we use to pass in the component we expect to encounter, in this case Player
     protected override void OnCantMove<T>(T component)
     {
-        if(component.GetComponent<Collider2D>().tag == "Player")
-        {
-            //Declare hitPlayer and set it to equal the encountered component.
-            Player hitPlayer = component as Player;
-
-            //Call the loseHP function of hitPlayer passing it playerDamage, the amount of HP to be subtracted.
-        //hitPlayer.loseHP(playerDamage);
-        hitPlayer.DamagePlayer(playerDamage);
-            //Set the attack trigger of animator to trigger Enemy attack animation.
-            //animator.SetTrigger("enemyAttack");
-
-        }
-
 
     }
     

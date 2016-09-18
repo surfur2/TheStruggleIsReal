@@ -11,16 +11,21 @@ public class Player : MonoBehaviour
     public Slider playerHealthSlider;
 
     private Rigidbody2D rgb2d; // Used for moving the charcter
+    private SpriteRenderer sprRnd2d;
     [SerializeField]
     private float currentHealth; // Intial HP
     private Animator anim;
     private float nextFire = 0;
+    private float iFrameDuration = 2.0f;
+    private float iFrameEnd;
+    private bool invulnerable = false;
     // For later use
     //private Animator animator;
 
     // Use this for initialization
     void Start()
     {
+        sprRnd2d = GetComponent<SpriteRenderer>();
         rgb2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         currentHealth = initialHealth;
@@ -30,7 +35,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         Vector3 shootPosition;
-        
+
         if (Time.time > nextFire)
         {
             if (Input.GetKey("right"))
@@ -77,7 +82,12 @@ public class Player : MonoBehaviour
                 DamagePlayer(2);
             }
 
-            
+
+        }
+
+        if (iFrameEnd < Time.time)
+        {
+            invulnerable = false;
         }
 
         playerHealthSlider.value = currentHealth;
@@ -87,6 +97,17 @@ public class Player : MonoBehaviour
 
         anim.SetFloat("MoveX", inputX);
         anim.SetFloat("MoveY", inputY);
+    }
+
+    IEnumerator Blink()
+    {
+        while (invulnerable)
+        {
+            sprRnd2d.enabled = false;
+            yield return new WaitForSeconds(0.2f);
+            sprRnd2d.enabled = true;
+            yield return new WaitForSeconds(0.2f);
+        }
     }
 
     // Update is called once per frame
@@ -109,6 +130,7 @@ public class Player : MonoBehaviour
 
     public void DamagePlayer(float hitPoints)
     {
+       
         currentHealth -= hitPoints;
 
         if (currentHealth <= 0.0f)
@@ -117,4 +139,20 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void MakeInvulnerable()
+    {
+        invulnerable = true;
+        iFrameEnd = Time.time + iFrameDuration;
+        StartCoroutine(Blink());
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Enemy" && !invulnerable)
+        {
+            EnemyLonely myEnemy = other.gameObject.GetComponent<EnemyLonely>();
+            DamagePlayer(myEnemy.playerDamage);
+            MakeInvulnerable();
+        }
+    }
 }
