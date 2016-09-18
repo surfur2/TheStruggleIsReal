@@ -178,7 +178,20 @@ Prefab:
       objectReference: {fileID: 1049637815}
     - target: {fileID: 4000012516601338, guid: 5055f75cffa55c1428b68b0659ec21bf, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20000012193913200, guid: 5055f75cffa55c1428b68b0659ec21bf,
+        type: 2}
+      propertyPath: orthographic size
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012516601338, guid: 5055f75cffa55c1428b68b0659ec21bf, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012516601338, guid: 5055f75cffa55c1428b68b0659ec21bf, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5055f75cffa55c1428b68b0659ec21bf, type: 2}
@@ -269,7 +282,7 @@ MonoBehaviour:
   enemyTiles: []
   outerWallTiles:
   - {fileID: 1000012978654430, guid: a67d2b067d1aaa54abde7611b6f05986, type: 2}
-  - {fileID: 1000013701908240, guid: a4f32e7fa7cab154295b3c478283f8e0, type: 2}
+  - {fileID: 1000010550662764, guid: c01bf26af7dbe3b478d9451bbf1cbc30, type: 2}
 --- !u!4 &1290276164
 Transform:
   m_ObjectHideFlags: 0
