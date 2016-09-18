@@ -29,7 +29,6 @@ public class BoardManager : MonoBehaviour
     public GameObject[] enemyTiles;
     public GameObject[] outerWallTiles;
 
-    private Transform boardHolder;
     private List<Vector3> gridPositions = new List<Vector3>();
 
     void InitialiseList()

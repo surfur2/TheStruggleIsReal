@@ -21,9 +21,11 @@ GameObject:
   - 4: {fileID: 4000010585962374}
   - 212: {fileID: 212000012953507586}
   - 114: {fileID: 114000011329204200}
-  m_Layer: 0
+  - 60: {fileID: 60000011237202006}
+  - 50: {fileID: 50000013541302884}
+  m_Layer: 8
   m_Name: PlayerProjectile
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41,6 +43,57 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!50 &50000013541302884
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010308764336}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!60 &60000011237202006
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010308764336}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: 0.49499997, y: 0.11}
+      - {x: 0.49499997, y: 0.35}
+      - {x: 0.48499998, y: 0.39999998}
+      - {x: 0.465, y: 0.47}
+      - {x: 0.45499998, y: 0.5}
+      - {x: 0.415, y: 0.59}
+      - {x: 0.375, y: 0.61}
+      - {x: 0.13499999, y: 0.61}
+      - {x: 0.024999999, y: 0.58}
+      - {x: -0.145, y: 0.52}
+      - {x: -0.33499998, y: 0.26}
+      - {x: -0.325, y: 0.11}
+      - {x: -0.345, y: -0.24}
+      - {x: -0.49499997, y: -0.38}
+      - {x: -0.49499997, y: -0.53999996}
+      - {x: -0.475, y: -0.61}
+      - {x: -0.305, y: -0.61}
+      - {x: -0.275, y: -0.53999996}
+      - {x: 0.005, y: -0.21}
+      - {x: 0.465, y: 0.01}
 --- !u!114 &114000011329204200
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -52,8 +105,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fa1f1ed80b71b643a59c859578ddfaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveDirection: 0
   moveSpeed: 15
   killDelay: 2
+  damage: 1
 --- !u!212 &212000012953507586
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -81,8 +136,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1418735697
-  m_SortingOrder: 1
+  m_SortingLayerID: -1769492161
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300004, guid: ba54d2f82d5deda4b846edc1d53e5a75, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

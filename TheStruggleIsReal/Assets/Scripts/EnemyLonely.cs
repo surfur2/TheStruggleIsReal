@@ -3,12 +3,11 @@ using System.Collections;
 
 public class EnemyLonely : MovingObject {
     public int playerDamage = 10;                            //The amount of hit points to subtract from the player when attacking.
-
+    public int hp = 2;                                     // The amount of hp enemy starts with
     //private Animator animator;                          //Variable of type Animator to store a reference to the enemy's Animator component.
     private Transform target;                           //Transform to attempt to move toward each turn.
     Renderer rend;
-
-
+    
     //Start overrides the virtual Start function of the base class.
     protected override void Start()
     {
@@ -50,15 +49,24 @@ public class EnemyLonely : MovingObject {
 
             AttemptMove<Player>(dir);
         }
-        
     }
-
 
     //OnCantMove is called if Enemy attempts to move into a space occupied by a Player, it overrides the OnCantMove function of MovingObject 
     //and takes a generic parameter T which we use to pass in the component we expect to encounter, in this case Player
     protected override void OnCantMove<T>(T component)
     {
 
+    }
+
+    public void DamageEnemy(int dmg)
+    {
+        
+        hp -= dmg;
+       
+        if (hp <= 0)
+        {
+            Destroy(gameObject, .1f);
+        }
     }
     
 }

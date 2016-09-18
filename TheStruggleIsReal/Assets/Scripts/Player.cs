@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     private float currentHealth; // Intial HP
     private Animator anim;
     private float nextFire = 0;
-    private float iFrameDuration = 2.0f;
+    private float iFrameDuration = 1.0f;
     private float iFrameEnd;
     private bool invulnerable = false;
     // For later use
@@ -139,7 +139,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void MakeInvulnerable()
+    private void MakeInvulnerable()
     {
         invulnerable = true;
         iFrameEnd = Time.time + iFrameDuration;
