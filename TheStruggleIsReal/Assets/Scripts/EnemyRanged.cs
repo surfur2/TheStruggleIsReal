@@ -1,25 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyLonely : MovingObject {
-    public int playerDamage = 10;                            //The amount of hit points to subtract from the player when attacking.
-    public int hp = 2;                                      // The amount of hp enemy starts with
-    public int chaseRadius = 7;                            // When does an enemy attempt to go after the player?
+public class EnemyRanged : MovingObject
+{
+    public int playerDamage = 20;                            //The amount of hit points to subtract from the player when attacking.
+
     //private Animator animator;                          //Variable of type Animator to store a reference to the enemy's Animator component.
     private Transform target;                           //Transform to attempt to move toward each turn.
     Renderer rend;
-    
+    private Rigidbody2D rb2D;
+
+
     //Start overrides the virtual Start function of the base class.
     protected override void Start()
     {
-        
+
         //Get and store a reference to the attached Animator component.
         //animator = GetComponent<Animator>();
 
         //Find the Player GameObject using it's tag and store a reference to its transform component.
         target = GameObject.FindGameObjectWithTag("Player").transform;
-        rend = GetComponent<Renderer>();
-        setMoveSpeed(0.8f);
+        setMoveSpeed(1.2f);
 
         //Call the start function of our base class MovingObject.
         base.Start();
@@ -40,53 +41,59 @@ public class EnemyLonely : MovingObject {
     //FixedUpdate is called each frame
     public void FixedUpdate()
     {
-
-        // Do we have LoS on player?
-        Vector2 chasingVector = (target.transform.position - this.transform.position);
-        // We do not want to hit our own collider, so we add in a small vector to prevent that
-        RaycastHit2D[] hitList = Physics2D.RaycastAll(transform.position, chasingVector, chaseRadius);
-        bool chase = false;
-
-        foreach(RaycastHit2D hit in hitList)
-        {
-            if (hit.collider.tag == "Wall")
-                break;
-
-            if (hit.collider.tag == "Player")
-                chase = true;
-        }
-
-        if (chase)
+        rend = GetComponent<Renderer>();
+        if (rend.isVisible)
         {
             //Set the direction for enemy
-            chasingVector.Normalize();
+            Vector2 dir = target.transform.position - this.transform.position;
+            dir.Normalize();
 
             //Call the AttemptMove function and pass in the generic parameter Player, because Enemy is moving and expecting to potentially encounter a Player
 
-            AttemptMove<Player>(chasingVector);
+            AttemptMove<Player>(dir);
         }
-        else
-        {
-            AttemptMove<Player>(new Vector2(0, 0));
-        }
+
     }
+
 
     //OnCantMove is called if Enemy attempts to move into a space occupied by a Player, it overrides the OnCantMove function of MovingObject 
     //and takes a generic parameter T which we use to pass in the component we expect to encounter, in this case Player
     protected override void OnCantMove<T>(T component)
     {
+        if (component.GetComponent<Collider2D>().tag == "Player")
+        {
+            //Declare hitPlayer and set it to equal the encountered component.
+            Player hitPlayer = component as Player;
+
+            //Call the loseHP function of hitPlayer passing it playerDamage, the amount of HP to be subtracted.
+            //hitPlayer.loseHP(playerDamage);
+            hitPlayer.DamagePlayer(playerDamage);
+            //Set the attack trigger of animator to trigger Enemy attack animation.
+            //animator.SetTrigger("enemyAttack");
+
+        }
+
 
     }
 
-    public void DamageEnemy(int dmg)
+
+    void OnCollisionEnter2D(Collision2D col)
     {
-        
-        hp -= dmg;
-       
-        if (hp <= 0)
+        if (col.gameObject.tag == "Player")
         {
-            Destroy(gameObject, .1f);
+            // It is object tagged with TagB
+            //System.Random rand = new System.Random();
+            //int x, y;
+            //x = (int)rb2D.velocity.x;
+            //y = (int)rb2D.velocity.y;
+
+            rb2D.velocity.Set(0, 0);
+
+            //if (rand.Next()%2 == 0)
+            //    rb2D.velocity = new Vector2(rb2D.velocity.x, -rb2D.velocity.y);
+            //else
+            //    rb2D.velocity = new Vector2(rb2D.velocity.y, -rb2D.velocity.x);
         }
     }
-    
+
 }
