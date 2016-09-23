@@ -10,19 +10,27 @@ public class FieldOfView : MonoBehaviour
 
     public float meshResolution;
 
+    public LayerMask obstacleMask;
+
     public MeshFilter viewMeshFilters;
+    public MeshRenderer meshRenderer;
     Mesh viewMesh;
 
     void Start()
     {
         viewMesh = new Mesh();
         viewMesh.name = "View Mesh";
+        meshRenderer.sortingLayerName = "Units";
+        meshRenderer.sortingLayerID = SortingLayer.NameToID("Units");
+        meshRenderer.sortingOrder = 10;
         viewMeshFilters.mesh = viewMesh;
-        StartCoroutine("FindTargestWithDelay", .2f);
+        // StartCoroutine("FindTargetsWithDelay", .2f);
     }
 
-    public Vector3 DirFromAngle(float angleInDegrees)
+    public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal)
     {
+        /*if (!angleIsGlobal)
+            angleInDegrees = transform.eulerAngles.z;*/
         return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), Mathf.Cos(angleInDegrees * Mathf.Deg2Rad), 0);
     }
 
@@ -47,7 +55,7 @@ public class FieldOfView : MonoBehaviour
         verticies[0] = Vector3.zero;
         for (int i=0; i < vertexCount - 1; i++)
         {
-            verticies[i + 1] = viewPoints[i];
+            verticies[i + 1] = transform.InverseTransformPoint(viewPoints[i]);
 
             if (i < vertexCount - 2)
             {
@@ -63,23 +71,22 @@ public class FieldOfView : MonoBehaviour
         viewMesh.RecalculateNormals();
     }
 
-    ViewCastInfo ViewCast(float angle)
+    ViewCastInfo ViewCast(float globalAngle)
     {
-        Vector3 dir = DirFromAngle(angle);
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, viewRadius, 6, 0, viewRadius);
-        // Physics.Raycast(transform.position, dir, out hit, viewRadius, 6);
+        Vector3 dir = DirFromAngle(globalAngle, true);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.position + dir, viewRadius, obstacleMask, 0, viewRadius);
 
         // if (Physics.Raycast(transform.position, dir, out hit, viewRadius, 6))
         if (hit.collider != null)
         {
-            return new ViewCastInfo(true, hit.point, hit.distance, angle);
+            return new ViewCastInfo(true, hit.point, hit.distance, globalAngle);
         }
         else
         {
-            return new ViewCastInfo(false, transform.position + dir * viewRadius, viewRadius, angle);
+            return new ViewCastInfo(false, transform.position + dir * viewRadius, viewRadius, globalAngle);
         }
     }
-    void Update()
+    void LateUpdate()
     {
         DrawFieldOfView();
     }

@@ -45,7 +45,7 @@ GameObject:
   - 114: {fileID: 114000010296547636}
   - 95: {fileID: 95000010694843828}
   - 60: {fileID: 60000011079543804}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -235,6 +235,8 @@ MonoBehaviour:
   rateOfFire: 2
   playerHealthSlider: {fileID: 0}
   currentHealth: 0
+  iFrameEnd: 0
+  invulnerable: 0
 --- !u!124 &124000012478537890
 Behaviour:
   m_ObjectHideFlags: 1

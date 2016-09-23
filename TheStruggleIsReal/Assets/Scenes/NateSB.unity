@@ -409,22 +409,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewRadius: 5
-  viewAngle: 90
-  meshResolution: 0.6
+  viewAngle: 360
+  meshResolution: 10
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 256
   viewMeshFilters: {fileID: 1335925793}
+  meshRenderer: {fileID: 1335925792}
 --- !u!4 &1335925795
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1335925791}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 39.354576, y: 28.518005, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 2108595612}
+  m_RootOrder: 1
 --- !u!1 &1735540750
 GameObject:
   m_ObjectHideFlags: 0
@@ -530,3 +534,8 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e794347a0ce6941459a3e83c9648e599, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &2108595612 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4000013789610100, guid: b9a036c5a61f0164fb4725531921aff8,
+    type: 2}
+  m_PrefabInternal: {fileID: 70673014}
