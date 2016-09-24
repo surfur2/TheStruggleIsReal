@@ -74,7 +74,7 @@ public class FieldOfView : MonoBehaviour
     ViewCastInfo ViewCast(float globalAngle)
     {
         Vector3 dir = DirFromAngle(globalAngle, true);
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.position + dir, viewRadius, obstacleMask, 0, viewRadius);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, viewRadius, obstacleMask, 0, viewRadius);
 
         // if (Physics.Raycast(transform.position, dir, out hit, viewRadius, 6))
         if (hit.collider != null)
