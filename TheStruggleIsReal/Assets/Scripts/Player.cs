@@ -38,40 +38,73 @@ public class Player : MonoBehaviour
 
         if (Time.time > nextFire)
         {
-            if (Input.GetKey("right"))
+            if (Input.GetKey("right") && Input.GetKey("up"))
+            {
+                shootPosition = new Vector3(transform.position.x + 0.5f, transform.position.y + 0.5f, 0.0f);
+                GameObject eBar = Instantiate(energyBar, shootPosition, Quaternion.identity) as GameObject;
+                Projectile eBarProjectile = eBar.GetComponent<Projectile>();
+                eBarProjectile.moveDirection = 1.5f;
+
+                nextFire = Time.time + (1 / rateOfFire);
+                DamagePlayer(2);
+            }
+
+            else if (Input.GetKey("left") && Input.GetKey("up"))
+            {
+                shootPosition = new Vector3(transform.position.x - 0.5f, transform.position.y + 0.5f, 0.0f);
+                GameObject eBar = Instantiate(energyBar, shootPosition, Quaternion.identity) as GameObject;
+                Projectile eBarProjectile = eBar.GetComponent<Projectile>();
+                eBarProjectile.moveDirection = -1.5f;
+
+                nextFire = Time.time + (1 / rateOfFire);
+                DamagePlayer(2);
+            }
+
+            else if (Input.GetKey("left") && Input.GetKey("down"))
+            {
+                shootPosition = new Vector3(transform.position.x - 0.5f, transform.position.y - 0.5f, 0.0f);
+                GameObject eBar = Instantiate(energyBar, shootPosition, Quaternion.identity) as GameObject;
+                Projectile eBarProjectile = eBar.GetComponent<Projectile>();
+                eBarProjectile.moveDirection = -3.0f;
+
+                nextFire = Time.time + (1 / rateOfFire);
+                DamagePlayer(2);
+            }
+
+            else if (Input.GetKey("right") && Input.GetKey("down"))
+            {
+                shootPosition = new Vector3(transform.position.x + 0.5f, transform.position.y - 0.5f, 0.0f);
+                GameObject eBar = Instantiate(energyBar, shootPosition, Quaternion.identity) as GameObject;
+                Projectile eBarProjectile = eBar.GetComponent<Projectile>();
+                eBarProjectile.moveDirection = 3.0f;
+
+                nextFire = Time.time + (1 / rateOfFire);
+                DamagePlayer(2);
+            }
+
+            else if (Input.GetKey("right"))
             {
                 shootPosition = new Vector3(transform.position.x + 0.5f, transform.position.y, 0.0f);
                 GameObject eBar = Instantiate(energyBar, shootPosition, Quaternion.identity) as GameObject;
                 Projectile eBarProjectile = eBar.GetComponent<Projectile>();
-                eBarProjectile.moveDirection = 1;
+                eBarProjectile.moveDirection = 1.0f;
 
                 nextFire = Time.time + (1 / rateOfFire);
                 DamagePlayer(2);
             }
 
-            if (Input.GetKey("left"))
+            else if (Input.GetKey("left"))
             {
                 shootPosition = new Vector3(transform.position.x - 0.5f, transform.position.y, 0.0f);
                 GameObject eBar = Instantiate(energyBar, shootPosition, Quaternion.identity) as GameObject;
                 Projectile eBarProjectile = eBar.GetComponent<Projectile>();
-                eBarProjectile.moveDirection = -1;
+                eBarProjectile.moveDirection = -1.0f;
 
                 nextFire = Time.time + (1 / rateOfFire);
                 DamagePlayer(2);
             }
 
-            if (Input.GetKey("up"))
-            {
-                shootPosition = new Vector3(transform.position.x, transform.position.y + 0.5f, 0.0f);
-                GameObject eBar = Instantiate(energyBar, shootPosition, Quaternion.identity) as GameObject;
-                Projectile eBarProjectile = eBar.GetComponent<Projectile>();
-                eBarProjectile.moveDirection = 2;
-
-                nextFire = Time.time + (1 / rateOfFire);
-                DamagePlayer(2);
-            }
-
-            if (Input.GetKey("down"))
+            else if (Input.GetKey("down"))
             {
                 shootPosition = new Vector3(transform.position.x, transform.position.y - 0.5f, 0.0f);
                 GameObject eBar = Instantiate(energyBar, shootPosition, Quaternion.identity) as GameObject;
@@ -82,7 +115,16 @@ public class Player : MonoBehaviour
                 DamagePlayer(2);
             }
 
+            else if (Input.GetKey("up"))
+            {
+                shootPosition = new Vector3(transform.position.x, transform.position.y + 0.5f, 0.0f);
+                GameObject eBar = Instantiate(energyBar, shootPosition, Quaternion.identity) as GameObject;
+                Projectile eBarProjectile = eBar.GetComponent<Projectile>();
+                eBarProjectile.moveDirection = 2.0f;
 
+                nextFire = Time.time + (1 / rateOfFire);
+                DamagePlayer(2);
+            }
         }
 
         if (iFrameEnd < Time.time)
@@ -123,7 +165,7 @@ public class Player : MonoBehaviour
             anim.SetBool("walking", true);
 
             // Set idol animation float
-            if (horzMove >= 0 && vertMove >= 0 )
+            if (horzMove >= 0 && vertMove >= 0)
             {
                 if (horzMove > vertMove)
                 {
@@ -176,7 +218,7 @@ public class Player : MonoBehaviour
 
     public void DamagePlayer(float hitPoints)
     {
-       
+
         currentHealth -= hitPoints;
 
         if (currentHealth <= 0.0f)
@@ -199,7 +241,7 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag== "Enemy" && !invulnerable)
+        if (other.gameObject.tag == "Enemy" && !invulnerable)
         {
             Enemy myEnemy = other.gameObject.GetComponent<Enemy>();
             DamagePlayer(myEnemy.playerDamage);
