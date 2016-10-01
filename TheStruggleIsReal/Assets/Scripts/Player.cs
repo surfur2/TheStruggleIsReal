@@ -261,7 +261,7 @@ public class Player : MonoBehaviour
             DamagePlayer(myEnemy.playerDamage);
             MakeInvulnerable();
         }
-        else if (other.gameObject.tag == "Projectile" && !invulnerable)
+        else if (other.gameObject.name.Contains("ProjectileEnemy"))
         {
             DamagePlayer(other.gameObject.GetComponent<ProjectileEnemy>().damage);
             MakeInvulnerable();
