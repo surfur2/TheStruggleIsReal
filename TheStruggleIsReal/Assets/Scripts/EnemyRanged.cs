@@ -7,9 +7,7 @@ public class EnemyRanged : Enemy
 
     //private Animator animator;                          //Variable of type Animator to store a reference to the enemy's Animator component.
     private Transform target;                           //Transform to attempt to move toward each turn.
-    Renderer rend;
     public GameObject energyBar;
-    private Rigidbody2D rb2D;
 
     private float nextFire = 0;
     public float rateOfFire;

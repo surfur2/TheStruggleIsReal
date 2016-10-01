@@ -199,13 +199,13 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag== "Enemy" && !invulnerable)
+        if (other.gameObject.tag == "Enemy" && !invulnerable)
         {
             Enemy myEnemy = other.gameObject.GetComponent<Enemy>();
             DamagePlayer(myEnemy.playerDamage);
             MakeInvulnerable();
         }
-        else if (other.gameObject.tag == "Projectile" && !invulnerable)
+        else if (other.gameObject.name.Contains("ProjectileEnemy"))
         {
             DamagePlayer(other.gameObject.GetComponent<ProjectileEnemy>().damage);
             MakeInvulnerable();

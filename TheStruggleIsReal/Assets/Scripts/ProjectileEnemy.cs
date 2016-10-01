@@ -5,6 +5,7 @@ public class ProjectileEnemy : Projectile {
 
     protected override void Start()
     {
+        damage = 3;
         moveSpeed = 3f;
         base.Start();
     }
