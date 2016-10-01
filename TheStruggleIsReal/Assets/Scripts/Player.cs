@@ -5,11 +5,14 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public GameObject energyBar;
+    public GameObject boardManager;
     public float moveSpeed = 6.0f; // Default move speed
     public float initialHealth = 100.0f;
     public float rateOfFire = 2.0f;
     public Slider playerHealthSlider;
+    public bool dead;
 
+    
     private Rigidbody2D rgb2d; // Used for moving the charcter
     private SpriteRenderer sprRnd2d;
     [SerializeField]
@@ -19,6 +22,8 @@ public class Player : MonoBehaviour
     private float iFrameDuration = 1.0f;
     public float iFrameEnd;
     public bool invulnerable = false;
+    
+   
     // For later use
     //private Animator animator;
 
@@ -30,13 +35,15 @@ public class Player : MonoBehaviour
         anim = GetComponent<Animator>();
         currentHealth = initialHealth;
         playerHealthSlider.maxValue = initialHealth;
+
+        dead = false;
     }
 
     void Update()
     {
         Vector3 shootPosition;
 
-        if (Time.time > nextFire)
+        if (Time.time > nextFire && !dead)
         {
             if (Input.GetKey("right") && Input.GetKey("up"))
             {
@@ -155,65 +162,69 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (!dead)
+        {
         float horzMove = Input.GetAxis("Horizontal");
         float vertMove = Input.GetAxis("Vertical");
 
         rgb2d.velocity = new Vector2(horzMove * moveSpeed, vertMove * moveSpeed);
 
-        if (horzMove != 0 || vertMove != 0)
-        {
-            anim.SetBool("walking", true);
+        
+            if (horzMove != 0 || vertMove != 0)
+            {
+                anim.SetBool("walking", true);
 
-            // Set idol animation float
-            if (horzMove >= 0 && vertMove >= 0)
-            {
-                if (horzMove > vertMove)
+                // Set idol animation float
+                if (horzMove >= 0 && vertMove >= 0)
                 {
-                    anim.SetFloat("lastDirection", .75f);
+                    if (horzMove > vertMove)
+                    {
+                        anim.SetFloat("lastDirection", .75f);
+                    }
+                    else
+                    {
+                        anim.SetFloat("lastDirection", 1.75f);
+                    }
                 }
-                else
+                else if (horzMove <= 0 && vertMove >= 0)
                 {
-                    anim.SetFloat("lastDirection", 1.75f);
+                    if (Mathf.Abs(horzMove) > vertMove)
+                    {
+                        anim.SetFloat("lastDirection", .25f);
+                    }
+                    else
+                    {
+                        anim.SetFloat("lastDirection", 1.75f);
+                    }
+                }
+                else if (horzMove <= 0 && vertMove <= 0)
+                {
+                    if (Mathf.Abs(horzMove) > Mathf.Abs(vertMove))
+                    {
+                        anim.SetFloat("lastDirection", .25f);
+                    }
+                    else
+                    {
+                        anim.SetFloat("lastDirection", -.25f);
+                    }
+                }
+                else if (horzMove >= 0 && vertMove <= 0)
+                {
+                    if (horzMove > Mathf.Abs(vertMove))
+                    {
+                        anim.SetFloat("lastDirection", .75f);
+                    }
+                    else
+                    {
+                        anim.SetFloat("lastDirection", -.25f);
+                    }
                 }
             }
-            else if (horzMove <= 0 && vertMove >= 0)
+            else
             {
-                if (Mathf.Abs(horzMove) > vertMove)
-                {
-                    anim.SetFloat("lastDirection", .25f);
-                }
-                else
-                {
-                    anim.SetFloat("lastDirection", 1.75f);
-                }
+                anim.SetBool("walking", false);
             }
-            else if (horzMove <= 0 && vertMove <= 0)
-            {
-                if (Mathf.Abs(horzMove) > Mathf.Abs(vertMove))
-                {
-                    anim.SetFloat("lastDirection", .25f);
-                }
-                else
-                {
-                    anim.SetFloat("lastDirection", -.25f);
-                }
-            }
-            else if (horzMove >= 0 && vertMove <= 0)
-            {
-                if (horzMove > Mathf.Abs(vertMove))
-                {
-                    anim.SetFloat("lastDirection", .75f);
-                }
-                else
-                {
-                    anim.SetFloat("lastDirection", -.25f);
-                }
-            }
-        }
-        else
-        {
-            anim.SetBool("walking", false);
-        }
+        }  
     }
 
     public void DamagePlayer(float hitPoints)
@@ -224,6 +235,9 @@ public class Player : MonoBehaviour
         if (currentHealth <= 0.0f)
         {
             Debug.Log("PlayerDead");
+            dead = true;
+            GetComponent<SpriteRenderer>().enabled = false;
+            boardManager.GetComponent<BoardManager>().backgroundImage.gameObject.SetActive(true);
         }
 
         if (currentHealth > initialHealth)

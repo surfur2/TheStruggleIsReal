@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 using Random = UnityEngine.Random;
@@ -23,6 +25,11 @@ public class BoardManager : MonoBehaviour
     public Count wallCount = new Count(5, 9);
     public Count foodCount = new Count(1, 5);
     public GameObject exit;
+    public GameObject player;
+    public Text gameTitleText;
+    public Button playButton;
+    public Button gameoverButton;
+    public Image backgroundImage;
     public GameObject[] floorTiles;
     public GameObject[] wallTiles;
     public GameObject[] energyTiles;
@@ -147,6 +154,8 @@ public class BoardManager : MonoBehaviour
 
     public void SetupScene()
     {
+        UISetup(false);
+        PlayerInit(true);
         BoardSetup();
 
        //InitialiseList();
@@ -161,11 +170,32 @@ public class BoardManager : MonoBehaviour
 
     void Start()
     {
-        SetupScene();
+        //SetupScene();
     }
 
     void Update()
     {
+        if(player.GetComponent<Player> ().dead)
+        {
+            gameoverButton.gameObject.SetActive(true);
+        }
+    }
 
+    void PlayerInit(bool setup)
+    {
+        player.GetComponent<SpriteRenderer>().enabled = setup;
+        player.GetComponent<Player>().enabled = setup;
+    }
+
+    public void UISetup(bool setup)
+    {
+        gameTitleText.gameObject.SetActive(setup);
+        playButton.gameObject.SetActive(setup);
+        backgroundImage.gameObject.SetActive(setup);
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
