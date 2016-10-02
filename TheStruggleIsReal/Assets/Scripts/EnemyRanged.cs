@@ -54,39 +54,40 @@ public class EnemyRanged : Enemy
                 GameObject eBar = Instantiate(energyBar, shootPosition, Quaternion.identity) as GameObject;
                 ProjectileEnemy eBarProjectile = eBar.GetComponent<ProjectileEnemy>();
                 chasingVector.Normalize();
-                float ratio = chasingVector.y / chasingVector.x;
-                if (ratio < 1 && chasingVector.x > 0) 
-                {
-                    eBarProjectile.moveDirection = 1f;
-                }
-                else if (ratio < 1 && chasingVector.x < 0)
-                {
-                    eBarProjectile.moveDirection = -1f;
-                }
-                else if (ratio > 1 && chasingVector.x > 0)
-                {
-                    eBarProjectile.moveDirection = 2f;
-                }
-                else if (ratio > 1 && chasingVector.x < 0)
-                {
-                    eBarProjectile.moveDirection = -2f;
-                }
-                else if (ratio == 1 && chasingVector.x > 0)
-                {
-                    eBarProjectile.moveDirection = 1.5f;
-                }
-                else if (ratio == 1 && chasingVector.x < 0)
-                {
-                    eBarProjectile.moveDirection = -3f;
-                }
-                else if (ratio == -1 && chasingVector.x > 0)
-                {
-                    eBarProjectile.moveDirection = -3f;
-                }
-                else if (ratio == -1 && chasingVector.x > 0)
-                {
-                    eBarProjectile.moveDirection = 3f;
-                }
+                eBarProjectile.direction = chasingVector;
+                //float ratio = chasingVector.y / chasingVector.x;
+                //if (ratio < 1 && chasingVector.x > 0) 
+                //{
+                //    eBarProjectile.moveDirection = 1f;
+                //}
+                //else if (ratio < 1 && chasingVector.x < 0)
+                //{
+                //    eBarProjectile.moveDirection = -1f;
+                //}
+                //else if (ratio > 1 && chasingVector.x > 0)
+                //{
+                //    eBarProjectile.moveDirection = 2f;
+                //}
+                //else if (ratio > 1 && chasingVector.x < 0)
+                //{
+                //    eBarProjectile.moveDirection = -2f;
+                //}
+                //else if (ratio == 1 && chasingVector.x > 0)
+                //{
+                //    eBarProjectile.moveDirection = 1.5f;
+                //}
+                //else if (ratio == 1 && chasingVector.x < 0)
+                //{
+                //    eBarProjectile.moveDirection = -3f;
+                //}
+                //else if (ratio == -1 && chasingVector.x > 0)
+                //{
+                //    eBarProjectile.moveDirection = -3f;
+                //}
+                //else if (ratio == -1 && chasingVector.x > 0)
+                //{
+                //    eBarProjectile.moveDirection = 3f;
+                //}
                 //if (chasingVector.x > 0)
                 //{
                 //    if (chasingVector.y == 0)

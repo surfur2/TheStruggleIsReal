@@ -59,7 +59,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!60 &60000011299784242
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -108,6 +108,7 @@ MonoBehaviour:
   moveSpeed: 15
   killDelay: 2
   damage: 1
+  direction: {x: 0, y: 0}
 --- !u!212 &212000013210961584
 SpriteRenderer:
   m_ObjectHideFlags: 1
