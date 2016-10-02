@@ -157,8 +157,9 @@ public class BoardManager : MonoBehaviour
         UISetup(false);
         PlayerInit(true);
         BoardSetup();
+        Time.timeScale = 1.0f;
 
-       //InitialiseList();
+        //InitialiseList();
 
         //LayoutObjectAtRandom(wallTiles, wallCount.minimum, wallCount.maximum);
 
@@ -171,6 +172,7 @@ public class BoardManager : MonoBehaviour
     void Start()
     {
         //SetupScene();
+        Time.timeScale = 0.0f;
     }
 
     void Update()
@@ -196,6 +198,7 @@ public class BoardManager : MonoBehaviour
 
     public void RestartGame()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
