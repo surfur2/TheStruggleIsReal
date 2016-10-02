@@ -158,8 +158,10 @@ public class BoardManager : MonoBehaviour
         PlayerInit(true);
         BoardSetup();
         Time.timeScale = 1.0f;
+        //BoardSetup();
 
         //InitialiseList();
+       //InitialiseList();
 
         //LayoutObjectAtRandom(wallTiles, wallCount.minimum, wallCount.maximum);
 
