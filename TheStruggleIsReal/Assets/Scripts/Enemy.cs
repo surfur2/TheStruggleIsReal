@@ -95,6 +95,7 @@ public class Enemy : MovingObject
         //{
         //    AttemptMove<Player>(new Vector2(0, 0));
         //}
+        
         if (chasingVector.magnitude < chaseRadius/* && chasingVector.magnitude > 0.314*/)
         {
 

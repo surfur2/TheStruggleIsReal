@@ -96,6 +96,58 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1280149206}
   m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+--- !u!1001 &202566939
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4000010607535986, guid: 0039ff321d983bf46a066e5e37d87b8b, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010607535986, guid: 0039ff321d983bf46a066e5e37d87b8b, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010607535986, guid: 0039ff321d983bf46a066e5e37d87b8b, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010607535986, guid: 0039ff321d983bf46a066e5e37d87b8b, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010607535986, guid: 0039ff321d983bf46a066e5e37d87b8b, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010607535986, guid: 0039ff321d983bf46a066e5e37d87b8b, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010607535986, guid: 0039ff321d983bf46a066e5e37d87b8b, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010607535986, guid: 0039ff321d983bf46a066e5e37d87b8b, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012612638806, guid: 0039ff321d983bf46a066e5e37d87b8b,
+        type: 2}
+      propertyPath: boardManager
+      value: 
+      objectReference: {fileID: 1290276163}
+    - target: {fileID: 114000012612638806, guid: 0039ff321d983bf46a066e5e37d87b8b,
+        type: 2}
+      propertyPath: gameoverButton
+      value: 
+      objectReference: {fileID: 276336761}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 0039ff321d983bf46a066e5e37d87b8b, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &231357171
 Prefab:
   m_ObjectHideFlags: 0
@@ -345,6 +397,16 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetupScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010714493654, guid: d3385a1caa55d2c459db649b8ea73b1d,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1290276163}
+    - target: {fileID: 114000010714493654, guid: d3385a1caa55d2c459db649b8ea73b1d,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartGame
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d3385a1caa55d2c459db649b8ea73b1d, type: 2}
