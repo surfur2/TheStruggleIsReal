@@ -22,7 +22,7 @@ GameObject:
   - 212: {fileID: 212000010808160266}
   - 61: {fileID: 61000011817317156}
   m_Layer: 0
-  m_Name: (41,32)
+  m_Name: Corner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

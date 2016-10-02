@@ -47,8 +47,19 @@ public class EnemyRanged : Enemy
         if (chasingVector.magnitude < 4)
         {
             Vector3 shootPosition;
+            RaycastHit2D[] hitList = Physics2D.RaycastAll(transform.position, chasingVector, chaseRadius);
+            bool shouldShoot = false;
 
-            if (Time.time > nextFire)
+            foreach(RaycastHit2D hit in hitList)
+            {
+                if (hit.collider.tag == "Wall")
+                    break;
+
+                if (hit.collider.tag == "Player")
+                    shouldShoot = true;
+            }
+
+            if (Time.time > nextFire && shouldShoot)
             {
                 shootPosition = this.transform.position;
                 GameObject eBar = Instantiate(energyBar, shootPosition, Quaternion.identity) as GameObject;
