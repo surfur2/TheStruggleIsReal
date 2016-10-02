@@ -346,6 +346,16 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetupScene
       objectReference: {fileID: 0}
+    - target: {fileID: 114000010714493654, guid: d3385a1caa55d2c459db649b8ea73b1d,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1290276163}
+    - target: {fileID: 114000010714493654, guid: d3385a1caa55d2c459db649b8ea73b1d,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartGame
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d3385a1caa55d2c459db649b8ea73b1d, type: 2}
   m_IsPrefabParent: 0
