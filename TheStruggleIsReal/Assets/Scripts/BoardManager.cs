@@ -156,7 +156,7 @@ public class BoardManager : MonoBehaviour
     {
         UISetup(false);
         PlayerInit(true);
-        BoardSetup();
+        //BoardSetup();
         Time.timeScale = 1.0f;
         //BoardSetup();
 
