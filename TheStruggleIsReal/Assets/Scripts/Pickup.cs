@@ -22,8 +22,7 @@ public class Pickup : MonoBehaviour
         {
             Player playerScript = other.gameObject.GetComponent<Player>();
             playerScript.DamagePlayer(-50.0f);
+            Destroy(gameObject);
         }
-
-        Destroy(gameObject);
     }
 }
